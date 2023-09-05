@@ -1,13 +1,13 @@
 function updateTime(){
-  //Los Angeles //
-  let losAngelesElement = document.querySelector("#los-angeles");
-  if (losAngelesElement) {
-    let losAngelesDateElement = losAngelesElement.querySelector(".date");
-    losAngelesTime = moment().tz("America/Los_Angeles");
-    losAngelesDateElement.innerHTML = losAngelesTime.format("ddd DD MMM YYYY");
+  //New York //
+  let newYorkElement = document.querySelector("#new-york");
+  if (newYorkElement) {
+    let newYorkDateElement = newYorkElement.querySelector(".date");
+    newYorkTime = moment().tz("America/New_York");
+    newYorkDateElement.innerHTML = newYorkTime.format("ddd DD MMM YYYY");
 
-    let losAngelesTimeElement = losAngelesElement.querySelector(".time");
-    losAngelesTimeElement.innerHTML = losAngelesTime.format(
+    let newYorkTimeElement = newYorkElement.querySelector(".time");
+    newYorkTimeElement.innerHTML = newYorkTime.format(
       "h:mm:ss [<small>]A[</small]"
     );
   }
@@ -24,6 +24,31 @@ function updateTime(){
       "h:mm:ss [<small>]A[</small]"
     );
   }
+//London //
+  let londonElement = document.querySelector("#london");
+  if (londonElement) {
+    let londonDateElement = londonElement.querySelector(".date");
+    londonTime = moment().tz("Europe/London");
+    londonDateElement.innerHTML = londonTime.format("ddd DD MMM YYYY");
+
+    let londonTimeElement = londonElement.querySelector(".time");
+    londonTimeElement.innerHTML = londonTime.format(
+      "h:mm:ss [<small>]A[</small]"
+    );
+  }
+//Tokyo//
+  let tokyoElement = document.querySelector("#tokyo");
+  if (tokyoElement) {
+    let tokyoDateElement = tokyoElement.querySelector(".date");
+    tokyoTime = moment().tz("Asia/Tokyo");
+    tokyoDateElement.innerHTML = tokyoTime.format("ddd DD MMM YYYY");
+
+    let tokyoTimeElement = tokyoElement.querySelector(".time");
+    tokyoTimeElement.innerHTML = tokyoTime.format(
+      "h:mm:ss [<small>]A[</small]"
+    );
+  }
+
 }
 
 
@@ -38,15 +63,17 @@ function updateCity(event){
     let cityName = cityTimeZone.replace("_", " ").split("/")[1];
     let cityTime = moment().tz(cityTimeZone);
     let citiesElement = document.querySelector ("#cities");
-    citiesElement.innerHTML = 
-   `
+    citiesElement.innerHTML = `
     <div class="city" >
     <div>
     <h2>${cityName}</h2>
 <div class="date">${cityTime.format("DD MMM YYYY")}</div>
 </div>
-<div class="time">${cityTime.format("h:mm:ss")} <small>${cityTime.format("A")}</small></div>
+<div class="time">${cityTime.format("h:mm:ss")} <small>${cityTime.format(
+      "A"
+    )}</small></div>
 </div>
+<a href="index.html"> go back to all cities </a>
 `;
 }
 
